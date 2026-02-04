@@ -1,18 +1,14 @@
 .hero-equipment-section {
-  flex-shrink: 0;
-  min-width: 300px;
   margin-bottom: 0;
 }
 
 .hero-section-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  padding: 10px 12px;
-  background: #1e293b;
-  border-radius: 6px;
-  border: 1px solid #334155;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #334155;
 }
 
 .hero-info {
@@ -22,57 +18,29 @@
 }
 
 .hero-icon {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .hero-name {
   color: #f97316;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   margin: 0;
 }
 
 .hero-equipment-grid {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 2px 0;
-  scrollbar-width: thin;
-  scrollbar-color: #475569 transparent;
-}
-
-.hero-equipment-grid::-webkit-scrollbar {
-  height: 3px;
-}
-
-.hero-equipment-grid::-webkit-scrollbar-track {
-  background: #334155;
-  border-radius: 2px;
-}
-
-.hero-equipment-grid::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 2px;
-}
-
-.hero-equipment-grid::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
-}
-
-.hero-equipment-grid .equipment-card {
-  flex-shrink: 0;
-  width: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
 }
 
 @media (max-width: 768px) {
   .hero-equipment-section {
     margin-bottom: 0;
-    min-width: 280px;
   }
   
   .hero-section-header {
-    padding: 8px 10px;
-    flex-wrap: wrap;
+    padding: 6px 0;
   }
   
   .hero-name {
@@ -80,16 +48,11 @@
   }
   
   .hero-icon {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
-  .hero-equipment-grid .equipment-card {
-    width: 70px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-equipment-grid .equipment-card {
-    width: 65px;
+  .hero-equipment-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 6px;
   }
 }

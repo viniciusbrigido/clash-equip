@@ -48,8 +48,8 @@
 
 .player-info {
   background: #1e293b;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 4px;
+  padding: 16px;
   margin-bottom: 20px;
   border: 1px solid #334155;
   text-align: center;
@@ -74,24 +74,76 @@
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
+  align-items: center;
+}
+
+.player-league {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #334155;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #475569;
+}
+
+.league-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.league-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #fbbf24;
+}
+
+.player-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.player-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #334155;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #475569;
+}
+
+.label-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.label-name {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #94a3b8;
 }
 
 .new-search-btn {
-  background: #334155;
-  border: 1px solid #475569;
-  border-radius: 6px;
-  color: #e2e8f0;
-  padding: 8px 16px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  background: #f97316;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  margin-top: 4px;
 }
 
 .new-search-btn:hover {
-  background: #475569;
-  border-color: #f97316;
-  color: #f97316;
+  background: #ea580c;
 }
 
 .player-tag,
@@ -177,9 +229,40 @@
     padding: 6px 10px;
   }
   
+  .player-league {
+    padding: 5px 10px;
+  }
+  
+  .league-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .league-name {
+    font-size: 0.7rem;
+  }
+  
+  .player-labels {
+    gap: 4px;
+    margin-top: 6px;
+  }
+  
+  .player-label {
+    padding: 3px 6px;
+  }
+  
+  .label-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .label-name {
+    font-size: 0.65rem;
+  }
+  
   .new-search-btn {
-    padding: 8px 14px;
-    font-size: 0.75rem;
+    padding: 10px 16px;
+    font-size: 0.8rem;
   }
   
   .error-message {

@@ -14,10 +14,10 @@ const HeroEquipmentSection = ({ heroName, allEquipment, playerEquipmentMap, hero
       
       <div className="hero-equipment-grid">
         {allEquipment.map((equipmentData, index) => {
+          console.log('playerEquipmentMap: ', playerEquipmentMap);
           const playerEquipment = playerEquipmentMap[equipmentData.name];
           const displayEquipment = playerEquipment || {
             name: equipmentData.name,
-            level: 1,
             heroName: heroName
           };
           
@@ -26,7 +26,7 @@ const HeroEquipmentSection = ({ heroName, allEquipment, playerEquipmentMap, hero
               key={`${equipmentData.name}-${index}`} 
               equipment={displayEquipment}
               playerLevel={playerEquipment?.level}
-              equipped={playerEquipment?.equipped}
+              isEquipped={playerEquipment?.equipped}
             />
           );
         })}

@@ -2,10 +2,12 @@ import React from 'react';
 import { getEquipmentData, isMaxLevel } from '../../utils/equipmentImages';
 import './EquipmentCard.css';
 
-const EquipmentCard = ({ equipment, playerLevel = null, equipped = false }) => {
+const EquipmentCard = ({ equipment, playerLevel = null, isEquipped = false }) => {
   const equipmentData = getEquipmentData(equipment.name);
-  const level = playerLevel || equipment.level || 1;
-  const isMax = isMaxLevel(equipment.name, level);
+  const level = playerLevel || equipment.level;
+  const hasLevel = level !== null && level !== undefined;
+  const isMax = hasLevel ? isMaxLevel(equipment.name, level) : false;
+  const isUnlocked = hasLevel;
 
   const getRarityColor = (level, isMax) => {
     if (isMax) return { bg: '#ffd700', shadow: 'rgba(255, 215, 0, 0.5)' }; // Dourado para nível máximo
@@ -15,7 +17,7 @@ const EquipmentCard = ({ equipment, playerLevel = null, equipped = false }) => {
   };
 
   return (
-    <div className="equipment-card">
+    <div className={`equipment-card ${!isUnlocked ? 'locked' : ''}`}>
       <div className="equipment-image">
         <img 
           src={equipmentData.image}
@@ -26,20 +28,22 @@ const EquipmentCard = ({ equipment, playerLevel = null, equipped = false }) => {
             e.target.src = equipment.iconUrls?.medium || equipment.iconUrls?.small || '/equipment-icons/default-equipment.png';
           }}
         />
-        {equipped && (
+        {isEquipped && isUnlocked && (
           <div className="equipped-badge">
             E
           </div>
         )}
-        <div 
-          className={`level-badge ${isMax ? 'max-level' : ''}`}
-          style={{ 
-            background: `linear-gradient(135deg, ${getRarityColor(level, isMax).bg} 0%, ${getRarityColor(level, isMax).bg}dd 100%)`,
-            boxShadow: `0 2px 8px ${getRarityColor(level, isMax).shadow}`
-          }}
-        >
-          {level}
-        </div>
+        {isUnlocked && (
+          <div 
+            className={`level-badge ${isMax ? 'max-level' : ''}`}
+            style={{ 
+              background: `linear-gradient(135deg, ${getRarityColor(level, isMax).bg} 0%, ${getRarityColor(level, isMax).bg}dd 100%)`,
+              boxShadow: `0 2px 8px ${getRarityColor(level, isMax).shadow}`
+            }}
+          >
+            {level}
+          </div>
+        )}
       </div>
       <div className="equipment-info">
         <h4 className="equipment-name">{equipment.name}</h4>

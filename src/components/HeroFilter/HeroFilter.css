@@ -1,7 +1,7 @@
 .hero-filter {
   background: #1e293b;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 4px;
+  padding: 12px;
   margin-bottom: 16px;
   border: 1px solid #334155;
   text-align: center;
@@ -25,14 +25,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 8px;
+  padding: 8px 6px;
   background: #334155;
   border: 1px solid #475569;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #cbd5e1;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 70px;
+  min-width: 65px;
 }
 
 .hero-btn:hover {
@@ -60,7 +60,7 @@
 
 @media (max-width: 768px) {
   .hero-filter {
-    padding: 12px;
+    padding: 10px;
   }
   
   .hero-buttons {
@@ -69,15 +69,15 @@
   }
   
   .hero-btn {
-    min-width: 60px;
-    padding: 8px 6px;
+    min-width: 55px;
+    padding: 6px 4px;
   }
   
   .hero-icon {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .hero-name {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 }

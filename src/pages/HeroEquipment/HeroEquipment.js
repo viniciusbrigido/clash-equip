@@ -97,9 +97,32 @@ const HeroEquipment = () => {
             <h2>👤 {playerData.name}</h2>
             <div className="player-details">
               <span className="player-tag">🏷️ {playerData.tag}</span>
-              <span className="player-level">⭐ Nível {playerData.expLevel}</span>
+              {playerData.leagueTier && (
+                <div className="player-league">
+                  <img 
+                    src={playerData.leagueTier.iconUrls.small} 
+                    alt={playerData.leagueTier.name}
+                    className="league-icon"
+                  />
+                  <span className="league-name">{playerData.leagueTier.name}</span>
+                </div>
+              )}
               <span className="player-trophies">🏆 {playerData.trophies}</span>
             </div>
+            {playerData.labels && playerData.labels.length > 0 && (
+              <div className="player-labels">
+                {playerData.labels.map((label) => (
+                  <div key={label.id} className="player-label">
+                    <img 
+                      src={label.iconUrls.small} 
+                      alt={label.name}
+                      className="label-icon"
+                    />
+                    <span className="label-name">{label.name}</span>
+                  </div>
+                ))}
+              </div>
+            )}
             <button className="new-search-btn" onClick={handleNewSearch}>
               🔍 Buscar outro jogador
             </button>

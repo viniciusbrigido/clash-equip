@@ -1,15 +1,14 @@
 .equipment-card {
   background: #1e293b;
   border: 1px solid #334155;
-  border-radius: 6px;
-  padding: 10px;
+  border-radius: 4px;
+  padding: 12px;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .equipment-card:hover {
   border-color: #f97316;
-  transform: translateY(-1px);
 }
 
 .equipment-image {
@@ -17,13 +16,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  margin-bottom: 6px;
+  height: 60px;
+  margin-bottom: 8px;
 }
 
 .equipment-icon-img {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 
@@ -70,6 +69,20 @@
   z-index: 3;
 }
 
+.equipment-card.locked {
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+
+.equipment-card.locked:hover {
+  opacity: 0.6;
+  transform: none;
+}
+
+.equipment-card.locked .equipment-name {
+  color: #64748b;
+}
+
 .equipment-info {
   text-align: center;
 }
@@ -84,32 +97,32 @@
 
 @media (max-width: 768px) {
   .equipment-card {
-    padding: 8px;
+    padding: 10px;
     border-radius: 4px;
   }
   
   .equipment-image {
-    height: 36px;
-    margin-bottom: 4px;
+    height: 50px;
+    margin-bottom: 6px;
   }
   
   .equipment-icon-img {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
   }
   
   .level-badge {
-    min-width: 14px;
-    height: 14px;
-    font-size: 0.6rem;
-    padding: 1px 3px;
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.65rem;
+    padding: 1px 4px;
   }
   
   .equipped-badge {
-    min-width: 10px;
-    height: 10px;
-    font-size: 0.55rem;
-    padding: 1px 2px;
+    min-width: 12px;
+    height: 12px;
+    font-size: 0.6rem;
+    padding: 1px 3px;
   }
   
   .equipment-name {

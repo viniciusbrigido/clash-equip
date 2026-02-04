@@ -33,7 +33,7 @@ const EquipmentGrid = ({ playerEquipment, selectedHeroes }) => {
         </h3>
       </div>
       
-      <div className="heroes-horizontal-layout">
+      <div className="heroes-vertical-layout">
         {heroesToShow.map((heroName) => {
           const allHeroEquipment = getEquipmentsByHero(heroName);
 
