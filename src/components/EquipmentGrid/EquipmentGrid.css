@@ -1,5 +1,7 @@
 .equipment-grid-container {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .equipment-header {
@@ -14,7 +16,7 @@
 
 .equipment-header h3 {
   color: #f97316;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin: 0;
 }
@@ -63,7 +65,7 @@
   }
   
   .equipment-header h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .heroes-vertical-layout {

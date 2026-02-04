@@ -12,6 +12,18 @@ const HeroEquipment = () => {
   const [selectedHeroes, setSelectedHeroes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isPlayerInfoExpanded, setIsPlayerInfoExpanded] = useState(true);
+  
+  // Filter states with localStorage persistence
+  const [showOnlyEquipped, setShowOnlyEquipped] = useState(() => {
+    const saved = localStorage.getItem('showOnlyEquipped');
+    return saved ? JSON.parse(saved) : false;
+  });
+  
+  const [hideUnlocked, setHideUnlocked] = useState(() => {
+    const saved = localStorage.getItem('hideUnlocked');
+    return saved ? JSON.parse(saved) : false;
+  });
 
   const processPlayerEquipment = (data) => {
     const playerEquip = [];
@@ -42,6 +54,7 @@ const HeroEquipment = () => {
     setPlayerData(null);
     setPlayerEquipment([]);
     setSelectedHeroes([]);
+    setIsPlayerInfoExpanded(false); // Collapse when new player is loaded
 
     try {
       const data = await fetchPlayerData(playerId);
@@ -65,10 +78,25 @@ const HeroEquipment = () => {
     setPlayerEquipment([]);
     setSelectedHeroes([]);
     setError('');
+    setIsPlayerInfoExpanded(true);
   };
 
   const handleHeroFilter = (heroNames) => {
     setSelectedHeroes(heroNames);
+  };
+
+  const togglePlayerInfo = () => {
+    setIsPlayerInfoExpanded(!isPlayerInfoExpanded);
+  };
+
+  const handleShowOnlyEquippedChange = (checked) => {
+    setShowOnlyEquipped(checked);
+    localStorage.setItem('showOnlyEquipped', JSON.stringify(checked));
+  };
+
+  const handleHideUnlockedChange = (checked) => {
+    setHideUnlocked(checked);
+    localStorage.setItem('hideUnlocked', JSON.stringify(checked));
   };
 
   return (
@@ -93,54 +121,90 @@ const HeroEquipment = () => {
 
       {playerData && (
         <div className="player-info">
-          <div className="player-header">
-            <h2>👤 {playerData.name}</h2>
-            <div className="player-details">
-              <span className="player-tag">🏷️ {playerData.tag}</span>
-              {playerData.leagueTier && (
-                <div className="player-league">
-                  <img 
-                    src={playerData.leagueTier.iconUrls.small} 
-                    alt={playerData.leagueTier.name}
-                    className="league-icon"
-                  />
-                  <span className="league-name">{playerData.leagueTier.name}</span>
-                </div>
-              )}
-              <span className="player-trophies">🏆 {playerData.trophies}</span>
+          <div className="player-header-collapsed">
+            <div className="player-basic-info">
+              <h2>👤 {playerData.name}</h2>
+              <button className="expand-btn" onClick={togglePlayerInfo}>
+                {isPlayerInfoExpanded ? '▼' : '▶'}
+              </button>
             </div>
-            {playerData.labels && playerData.labels.length > 0 && (
-              <div className="player-labels">
-                {playerData.labels.map((label) => (
-                  <div key={label.id} className="player-label">
-                    <img 
-                      src={label.iconUrls.small} 
-                      alt={label.name}
-                      className="label-icon"
-                    />
-                    <span className="label-name">{label.name}</span>
-                  </div>
-                ))}
-              </div>
-            )}
             <button className="new-search-btn" onClick={handleNewSearch}>
               🔍 Buscar outro jogador
             </button>
           </div>
+          
+          {isPlayerInfoExpanded && (
+            <div className="player-details-expanded">
+              <div className="player-details">
+                <span className="player-tag">🏷️ {playerData.tag}</span>
+                {playerData.leagueTier && (
+                  <div className="player-league">
+                    <img 
+                      src={playerData.leagueTier.iconUrls.small} 
+                      alt={playerData.leagueTier.name}
+                      className="league-icon"
+                    />
+                    <span className="league-name">{playerData.leagueTier.name}</span>
+                  </div>
+                )}
+                <span className="player-trophies">🏆 {playerData.trophies}</span>
+              </div>
+              {playerData.labels && playerData.labels.length > 0 && (
+                <div className="player-labels">
+                  {playerData.labels.map((label) => (
+                    <div key={label.id} className="player-label">
+                      <img 
+                        src={label.iconUrls.small} 
+                        alt={label.name}
+                        className="label-icon"
+                      />
+                      <span className="label-name">{label.name}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
 
       {playerEquipment.length > 0 && (
-        <HeroFilter
-          selectedHeroes={selectedHeroes}
-          onHeroSelect={handleHeroFilter}
-        />
+        <>
+          <HeroFilter
+            selectedHeroes={selectedHeroes}
+            onHeroSelect={handleHeroFilter}
+          />
+          
+          <div className="equipment-filters">
+            <div className="filter-checkboxes">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={showOnlyEquipped}
+                  onChange={(e) => handleShowOnlyEquippedChange(e.target.checked)}
+                />
+                <span className="checkbox-text">Mostrar apenas equipados</span>
+              </label>
+              
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={hideUnlocked}
+                  onChange={(e) => handleHideUnlockedChange(e.target.checked)}
+                />
+                <span className="checkbox-text">Ocultar não desbloqueados</span>
+              </label>
+            </div>
+          </div>
+        </>
       )}
 
       {playerEquipment.length > 0 && (
         <EquipmentGrid 
           playerEquipment={playerEquipment}
           selectedHeroes={selectedHeroes}
+          showOnlyEquipped={showOnlyEquipped}
+          hideUnlocked={hideUnlocked}
         />
       )}
 

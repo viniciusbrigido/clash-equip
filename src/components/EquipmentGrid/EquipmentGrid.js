@@ -13,7 +13,7 @@ const HERO_ICONS = {
 
 const HEROES = ['Barbarian King', 'Archer Queen', 'Grand Warden', 'Royal Champion', 'Minion Prince'];
 
-const EquipmentGrid = ({ playerEquipment, selectedHeroes }) => {
+const EquipmentGrid = ({ playerEquipment, selectedHeroes, showOnlyEquipped = false, hideUnlocked = false }) => {
   // Criar mapa dos equipamentos do jogador para fácil acesso
   const playerEquipmentMap = {};
   if (playerEquipment) {
@@ -46,6 +46,8 @@ const EquipmentGrid = ({ playerEquipment, selectedHeroes }) => {
               allEquipment={allHeroEquipment}
               playerEquipmentMap={playerEquipmentMap}
               heroIcon={HERO_ICONS[heroName] || '⚔️'}
+              showOnlyEquipped={showOnlyEquipped}
+              hideUnlocked={hideUnlocked}
             />
           );
         })}

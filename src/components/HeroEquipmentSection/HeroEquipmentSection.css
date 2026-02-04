@@ -18,23 +18,26 @@
 }
 
 .hero-icon {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .hero-name {
   color: #f97316;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
 }
 
 .hero-equipment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .hero-equipment-section {
     margin-bottom: 0;
   }
@@ -44,15 +47,15 @@
   }
   
   .hero-name {
-    font-size: 0.8rem;
-  }
-  
-  .hero-icon {
     font-size: 1rem;
   }
   
+  .hero-icon {
+    font-size: 1.2rem;
+  }
+  
   .hero-equipment-grid {
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 6px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
   }
 }
