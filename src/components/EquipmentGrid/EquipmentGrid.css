@@ -1,0 +1,83 @@
+.equipment-grid-container {
+  width: 100%;
+}
+
+.equipment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 119, 48, 0.1);
+}
+
+.equipment-header h3 {
+  background: linear-gradient(135deg, #ff7730 0%, #ffa726 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.heroes-sections {
+  width: 100%;
+}
+
+.no-equipment {
+  text-align: center;
+  padding: 60px 32px;
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 16px;
+  border: 1px dashed rgba(255, 119, 48, 0.2);
+}
+
+.no-equipment-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.no-equipment h3 {
+  background: linear-gradient(135deg, #ff7730 0%, #ffa726 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.no-equipment p {
+  color: #94a3b8;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .equipment-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .equipment-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .no-equipment {
+    padding: 40px 20px;
+  }
+  
+  .no-equipment-icon {
+    font-size: 3rem;
+  }
+  
+  .no-equipment h3 {
+    font-size: 1.1rem;
+  }
+}

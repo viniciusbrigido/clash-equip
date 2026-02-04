@@ -1,0 +1,101 @@
+# Clash of Clans - Visualizador de Equipamentos dos Heróis
+
+Uma aplicação React com backend Node.js para visualizar os equipamentos dos heróis de jogadores do Clash of Clans.
+
+## 🚀 Como Executar
+
+### 1. Backend (Node.js + Express)
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+O backend rodará na porta 5000.
+
+### 2. Frontend (React)
+
+```bash
+# Na raiz do projeto
+npm install
+npm start
+```
+
+O frontend rodará na porta 3000.
+
+## 🎯 Funcionalidades
+
+- **Busca por Jogador**: Digite o ID do jogador para carregar seus dados
+- **Visualização de Equipamentos**: Exibe todos os equipamentos dos heróis com imagens e níveis
+- **Filtro por Herói**: Filtre equipamentos por herói específico
+- **Interface Moderna**: Design clean em dark mode com cores do Clash of Clans
+- **Responsivo**: Funciona perfeitamente em desktop e mobile
+
+## 🏗️ Arquitetura
+
+### Backend (`/server`)
+- **Express.js**: Servidor web
+- **CORS**: Permite requisições do frontend
+- **Token fixo**: API token do Clash of Clans já configurado
+
+### Frontend (`/src`)
+```
+src/
+├── components/
+│   ├── Header/              # Menu superior
+│   ├── PlayerSearch/        # Busca de jogador
+│   ├── HeroFilter/          # Filtros por herói
+│   ├── EquipmentCard/       # Card individual de equipamento
+│   └── EquipmentGrid/       # Grid de equipamentos
+├── contexts/
+│   └── ApiContext.js        # Gerenciamento da API
+├── pages/
+│   └── HeroEquipment/       # Página principal
+└── App.js                   # Componente raiz
+```
+
+## 🎨 Design
+
+- **Dark Mode**: Interface totalmente em modo escuro
+- **Cores do Clash of Clans**: Laranja (#ff7730) e gradientes
+- **Layout Clean**: Design minimalista e moderno
+- **Animações**: Hover effects e transições suaves
+- **Badges de Nível**: Coloridos por raridade do equipamento
+
+## 🔧 Tecnologias
+
+**Backend:**
+- Node.js
+- Express.js
+- CORS
+- node-fetch
+
+**Frontend:**
+- React 18
+- React Router
+- Context API
+- CSS3 com gradientes e animações
+
+## 📱 Como Usar
+
+1. Execute o backend e frontend
+2. Digite o ID do jogador (ex: Y292PGP0V)
+3. Os equipamentos serão exibidos em um grid
+4. Use os filtros de herói para ver equipamentos específicos
+
+## 🔐 API
+
+O token da API do Clash of Clans está fixo no código do backend para facilitar o desenvolvimento. Em produção, considere usar variáveis de ambiente.
+
+## 📝 Endpoints do Backend
+
+- `GET /api/player/:playerId` - Busca dados do jogador
+- `GET /api/test` - Teste de funcionamento
+
+## 🎮 Como Obter o ID do Jogador
+
+1. Abra o Clash of Clans
+2. Vá para o seu perfil
+3. O ID aparece no formato #XXXXXXX
+4. Use apenas a parte após o # na aplicação (ex: Y292PGP0V)
