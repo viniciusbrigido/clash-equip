@@ -2,11 +2,11 @@ import React from 'react';
 import './HeroFilter.css';
 
 const HEROES = [
-  { name: 'Barbarian King', icon: '👑', key: 'Barbarian King' },
-  { name: 'Archer Queen', icon: '🏹', key: 'Archer Queen' },
-  { name: 'Grand Warden', icon: '🧙‍♂️', key: 'Grand Warden' },
-  { name: 'Royal Champion', icon: '⚔️', key: 'Royal Champion' },
-  { name: 'Minion Prince', icon: '🦇', key: 'Minion Prince' }
+  { name: 'Barbarian King', key: 'Barbarian King', image: '/heroes/barbarian-king.png' },
+  { name: 'Archer Queen', key: 'Archer Queen', image: '/heroes/archer-queen.png' },
+  { name: 'Grand Warden', key: 'Grand Warden', image: '/heroes/grand-warden.png' },
+  { name: 'Royal Champion', key: 'Royal Champion', image: '/heroes/royal-champion.png' },
+  { name: 'Minion Prince', key: 'Minion Prince', image: '/heroes/minion-prince.png' },
 ];
 
 const HeroFilter = ({ selectedHeroes, onHeroSelect, showOnlyEquipped, onShowOnlyEquippedChange, hideUnlocked, onHideUnlockedChange }) => {
@@ -30,21 +30,18 @@ const HeroFilter = ({ selectedHeroes, onHeroSelect, showOnlyEquipped, onShowOnly
     <div className="hero-filter">
       <h3>🦸‍♂️ Filtrar por Herói</h3>
       <div className="hero-buttons">
-        <button
-          className={isAllSelected ? 'hero-btn active' : 'hero-btn'}
-          onClick={handleSelectAll}
-        >
-          <span className="hero-icon">🌟</span>
-          <span className="hero-name">Todos</span>
-        </button>
-        
         {HEROES.map((hero) => (
           <button
             key={hero.key}
             className={selectedHeroes.includes(hero.key) ? 'hero-btn active' : 'hero-btn'}
             onClick={() => handleHeroToggle(hero.key)}
           >
-            <span className="hero-icon">{hero.icon}</span>
+            <img
+              src={hero.image}
+              alt={hero.name}
+              className="hero-img"
+            />
+
             <span className="hero-name">{hero.name}</span>
           </button>
         ))}

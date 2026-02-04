@@ -46,11 +46,6 @@
   color: #f97316;
 }
 
-.hero-icon {
-  font-size: 1.25rem;
-  margin-bottom: 4px;
-}
-
 .hero-name {
   font-size: 0.60rem;
   font-weight: 500;
@@ -88,6 +83,12 @@
   user-select: none;
 }
 
+.hero-img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
 @media (max-width: 768px) {
   .hero-filter {
     padding: 10px;
@@ -101,10 +102,6 @@
   .hero-btn {
     min-width: 55px;
     padding: 6px 4px;
-  }
-  
-  .hero-icon {
-    font-size: 1rem;
   }
   
   .hero-name {
