@@ -169,34 +169,14 @@ const HeroEquipment = () => {
       )}
 
       {playerEquipment.length > 0 && (
-        <>
-          <HeroFilter
-            selectedHeroes={selectedHeroes}
-            onHeroSelect={handleHeroFilter}
-          />
-          
-          <div className="equipment-filters">
-            <div className="filter-checkboxes">
-              <label className="checkbox-label">
-                <input
-                  type="checkbox"
-                  checked={showOnlyEquipped}
-                  onChange={(e) => handleShowOnlyEquippedChange(e.target.checked)}
-                />
-                <span className="checkbox-text">Mostrar apenas equipados</span>
-              </label>
-              
-              <label className="checkbox-label">
-                <input
-                  type="checkbox"
-                  checked={hideUnlocked}
-                  onChange={(e) => handleHideUnlockedChange(e.target.checked)}
-                />
-                <span className="checkbox-text">Ocultar não desbloqueados</span>
-              </label>
-            </div>
-          </div>
-        </>
+        <HeroFilter
+          selectedHeroes={selectedHeroes}
+          onHeroSelect={handleHeroFilter}
+          showOnlyEquipped={showOnlyEquipped}
+          onShowOnlyEquippedChange={handleShowOnlyEquippedChange}
+          hideUnlocked={hideUnlocked}
+          onHideUnlockedChange={handleHideUnlockedChange}
+        />
       )}
 
       {playerEquipment.length > 0 && (

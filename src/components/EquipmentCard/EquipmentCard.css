@@ -5,6 +5,9 @@
   padding: 16px;
   transition: all 0.2s ease;
   cursor: pointer;
+  width: 120px;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .equipment-card:hover {
@@ -99,6 +102,8 @@
   .equipment-card {
     padding: 12px;
     border-radius: 4px;
+    width: 120px;
+    flex-shrink: 0;
   }
   
   .equipment-image {

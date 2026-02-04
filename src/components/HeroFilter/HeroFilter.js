@@ -9,7 +9,7 @@ const HEROES = [
   { name: 'Minion Prince', icon: '🦇', key: 'Minion Prince' }
 ];
 
-const HeroFilter = ({ selectedHeroes, onHeroSelect }) => {
+const HeroFilter = ({ selectedHeroes, onHeroSelect, showOnlyEquipped, onShowOnlyEquippedChange, hideUnlocked, onHideUnlockedChange }) => {
   const isAllSelected = selectedHeroes.length === 0;
   
   const handleHeroToggle = (heroKey) => {
@@ -48,6 +48,26 @@ const HeroFilter = ({ selectedHeroes, onHeroSelect }) => {
             <span className="hero-name">{hero.name}</span>
           </button>
         ))}
+      </div>
+      
+      <div className="filter-checkboxes">
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            checked={showOnlyEquipped}
+            onChange={(e) => onShowOnlyEquippedChange(e.target.checked)}
+          />
+          <span className="checkbox-text">Mostrar apenas equipados</span>
+        </label>
+        
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            checked={hideUnlocked}
+            onChange={(e) => onHideUnlockedChange(e.target.checked)}
+          />
+          <span className="checkbox-text">Ocultar não desbloqueados</span>
+        </label>
       </div>
     </div>
   );
