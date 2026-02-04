@@ -2,7 +2,7 @@ import React from 'react';
 import { getEquipmentData, isMaxLevel } from '../../utils/equipmentImages';
 import './EquipmentCard.css';
 
-const EquipmentCard = ({ equipment, playerLevel = null }) => {
+const EquipmentCard = ({ equipment, playerLevel = null, equipped = false }) => {
   const equipmentData = getEquipmentData(equipment.name);
   const level = playerLevel || equipment.level || 1;
   const isMax = isMaxLevel(equipment.name, level);
@@ -26,6 +26,11 @@ const EquipmentCard = ({ equipment, playerLevel = null }) => {
             e.target.src = equipment.iconUrls?.medium || equipment.iconUrls?.small || '/equipment-icons/default-equipment.png';
           }}
         />
+        {equipped && (
+          <div className="equipped-badge">
+            E
+          </div>
+        )}
         <div 
           className={`level-badge ${isMax ? 'max-level' : ''}`}
           style={{ 

@@ -26,6 +26,7 @@ const HeroEquipmentSection = ({ heroName, allEquipment, playerEquipmentMap, hero
               key={`${equipmentData.name}-${index}`} 
               equipment={displayEquipment}
               playerLevel={playerEquipment?.level}
+              equipped={playerEquipment?.equipped}
             />
           );
         })}

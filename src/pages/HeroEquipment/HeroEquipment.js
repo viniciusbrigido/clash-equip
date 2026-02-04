@@ -15,10 +15,22 @@ const HeroEquipment = () => {
 
   const processPlayerEquipment = (data) => {
     const playerEquip = [];
+    const playerEquipEquipped = [];
 
+    data.heroes.forEach(hero => {
+      if (hero.equipment) {
+        hero.equipment.forEach(eq => {
+          playerEquipEquipped.push(eq);
+        });
+      }
+    });
 
     data.heroEquipment.forEach(eq => {
-      playerEquip.push(eq);
+      const equipment = {
+        ...eq,
+        equipped: playerEquipEquipped.some(equipEquipped => equipEquipped.name === eq.name)
+      };
+      playerEquip.push(equipment);
     });
 
     return playerEquip;
