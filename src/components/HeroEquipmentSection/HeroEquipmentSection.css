@@ -1,95 +1,95 @@
 .hero-equipment-section {
-  margin-bottom: 24px;
+  flex-shrink: 0;
+  min-width: 300px;
+  margin-bottom: 0;
 }
 
 .hero-section-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding: 12px 16px;
-  background: rgba(15, 23, 42, 0.3);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 119, 48, 0.1);
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  background: #1e293b;
+  border-radius: 6px;
+  border: 1px solid #334155;
 }
 
 .hero-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .hero-icon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .hero-name {
-  background: linear-gradient(135deg, #ff7730 0%, #ffa726 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: 1rem;
+  color: #f97316;
+  font-size: 0.9rem;
   font-weight: 600;
   margin: 0;
 }
 
 .hero-equipment-grid {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
-  padding: 4px 0;
+  padding: 2px 0;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 119, 48, 0.3) transparent;
+  scrollbar-color: #475569 transparent;
 }
 
 .hero-equipment-grid::-webkit-scrollbar {
-  height: 4px;
+  height: 3px;
 }
 
 .hero-equipment-grid::-webkit-scrollbar-track {
-  background: rgba(148, 163, 184, 0.1);
+  background: #334155;
   border-radius: 2px;
 }
 
 .hero-equipment-grid::-webkit-scrollbar-thumb {
-  background: rgba(255, 119, 48, 0.3);
+  background: #475569;
   border-radius: 2px;
 }
 
 .hero-equipment-grid::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 119, 48, 0.5);
+  background: #64748b;
 }
 
 .hero-equipment-grid .equipment-card {
   flex-shrink: 0;
-  width: 100px;
+  width: 80px;
 }
 
 @media (max-width: 768px) {
   .hero-equipment-section {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    min-width: 280px;
   }
   
   .hero-section-header {
-    padding: 10px 12px;
+    padding: 8px 10px;
     flex-wrap: wrap;
   }
   
   .hero-name {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   
   .hero-icon {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   
   .hero-equipment-grid .equipment-card {
-    width: 85px;
+    width: 70px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-equipment-grid .equipment-card {
-    width: 75px;
+    width: 65px;
   }
 }

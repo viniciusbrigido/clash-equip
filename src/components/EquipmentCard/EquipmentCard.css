@@ -1,17 +1,15 @@
 .equipment-card {
-  background: rgba(15, 23, 42, 0.4);
-  border: 1px solid rgba(148, 163, 184, 0.1);
-  border-radius: 8px;
-  padding: 12px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 10px;
   transition: all 0.2s ease;
   cursor: pointer;
-  position: relative;
 }
 
 .equipment-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 119, 48, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #f97316;
+  transform: translateY(-1px);
 }
 
 .equipment-image {
@@ -19,48 +17,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
-  margin-bottom: 8px;
+  height: 40px;
+  margin-bottom: 6px;
 }
 
 .equipment-icon-img {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
 }
 
 .level-badge {
   position: absolute;
-  bottom: -4px;
-  right: -4px;
+  bottom: -3px;
+  right: -3px;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 0.7rem;
-  padding: 2px 6px;
+  font-weight: 600;
+  font-size: 0.65rem;
+  padding: 1px 4px;
   border-radius: 50%;
-  min-width: 18px;
-  height: 18px;
+  min-width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(15, 23, 42, 1);
+  border: 1px solid #0f172a;
   z-index: 2;
 }
 
 .level-badge.max-level {
-  color: #0f1419;
-  font-weight: 800;
-  animation: goldGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes goldGlow {
-  0% {
-    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-  }
+  background: #fbbf24 !important;
+  color: #0f172a;
+  font-weight: 700;
 }
 
 .equipment-info {
@@ -69,7 +57,7 @@
 
 .equipment-name {
   color: #e2e8f0;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   margin: 0;
   line-height: 1.1;
@@ -77,28 +65,28 @@
 
 @media (max-width: 768px) {
   .equipment-card {
-    padding: 10px;
-    border-radius: 6px;
+    padding: 8px;
+    border-radius: 4px;
   }
   
   .equipment-image {
-    height: 40px;
-    margin-bottom: 6px;
+    height: 36px;
+    margin-bottom: 4px;
   }
   
   .equipment-icon-img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
   
   .level-badge {
-    min-width: 16px;
-    height: 16px;
-    font-size: 0.65rem;
-    padding: 1px 4px;
+    min-width: 14px;
+    height: 14px;
+    font-size: 0.6rem;
+    padding: 1px 3px;
   }
   
   .equipment-name {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 }

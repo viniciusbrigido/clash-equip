@@ -9,14 +9,30 @@ const HEROES = [
   { name: 'Minion Prince', icon: '🦇', key: 'Minion Prince' }
 ];
 
-const HeroFilter = ({ selectedHero, onHeroSelect }) => {
+const HeroFilter = ({ selectedHeroes, onHeroSelect }) => {
+  const isAllSelected = selectedHeroes.length === 0;
+  
+  const handleHeroToggle = (heroKey) => {
+    if (selectedHeroes.includes(heroKey)) {
+      // Remove hero from selection
+      onHeroSelect(selectedHeroes.filter(h => h !== heroKey));
+    } else {
+      // Add hero to selection
+      onHeroSelect([...selectedHeroes, heroKey]);
+    }
+  };
+
+  const handleSelectAll = () => {
+    onHeroSelect([]);
+  };
+
   return (
     <div className="hero-filter">
       <h3>🦸‍♂️ Filtrar por Herói</h3>
       <div className="hero-buttons">
         <button
-          className={selectedHero === null ? 'hero-btn active' : 'hero-btn'}
-          onClick={() => onHeroSelect(null)}
+          className={isAllSelected ? 'hero-btn active' : 'hero-btn'}
+          onClick={handleSelectAll}
         >
           <span className="hero-icon">🌟</span>
           <span className="hero-name">Todos</span>
@@ -25,8 +41,8 @@ const HeroFilter = ({ selectedHero, onHeroSelect }) => {
         {HEROES.map((hero) => (
           <button
             key={hero.key}
-            className={selectedHero === hero.key ? 'hero-btn active' : 'hero-btn'}
-            onClick={() => onHeroSelect(hero.key)}
+            className={selectedHeroes.includes(hero.key) ? 'hero-btn active' : 'hero-btn'}
+            onClick={() => handleHeroToggle(hero.key)}
           >
             <span className="hero-icon">{hero.icon}</span>
             <span className="hero-name">{hero.name}</span>

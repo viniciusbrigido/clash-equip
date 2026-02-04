@@ -1,64 +1,61 @@
 .hero-filter {
-  background: rgba(15, 23, 42, 0.3);
-  border-radius: 12px;
+  background: #1e293b;
+  border-radius: 8px;
   padding: 16px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 119, 48, 0.1);
+  margin-bottom: 16px;
+  border: 1px solid #334155;
+  text-align: center;
 }
 
 .hero-filter h3 {
-  background: linear-gradient(135deg, #ff7730 0%, #ffa726 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f97316;
   margin-bottom: 12px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+  justify-content: center;
 }
 
 .hero-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 8px;
-  background: rgba(30, 41, 59, 0.2);
-  border: 1px solid rgba(148, 163, 184, 0.1);
-  border-radius: 8px;
+  padding: 10px 8px;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
   color: #cbd5e1;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 80px;
-  position: relative;
+  min-width: 70px;
 }
 
 .hero-btn:hover {
-  transform: translateY(-1px);
-  border-color: rgba(255, 119, 48, 0.2);
-  background: rgba(30, 41, 59, 0.3);
+  background: #475569;
+  border-color: #f97316;
 }
 
 .hero-btn.active {
-  background: rgba(255, 119, 48, 0.1);
-  border-color: #ff7730;
-  color: #ff7730;
+  background: #475569;
+  border-color: #f97316;
+  color: #f97316;
 }
 
 .hero-icon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 4px;
 }
 
 .hero-name {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 @media (max-width: 768px) {
@@ -68,19 +65,19 @@
   
   .hero-buttons {
     justify-content: center;
-    gap: 6px;
+    gap: 4px;
   }
   
   .hero-btn {
-    min-width: 70px;
-    padding: 10px 6px;
+    min-width: 60px;
+    padding: 8px 6px;
   }
   
   .hero-icon {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   
   .hero-name {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 }

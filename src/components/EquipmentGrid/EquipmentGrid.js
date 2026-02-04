@@ -13,7 +13,7 @@ const HERO_ICONS = {
 
 const HEROES = ['Barbarian King', 'Archer Queen', 'Grand Warden', 'Royal Champion', 'Minion Prince'];
 
-const EquipmentGrid = ({ playerEquipment, selectedHero }) => {
+const EquipmentGrid = ({ playerEquipment, selectedHeroes }) => {
   // Criar mapa dos equipamentos do jogador para fácil acesso
   const playerEquipmentMap = {};
   if (playerEquipment) {
@@ -22,18 +22,18 @@ const EquipmentGrid = ({ playerEquipment, selectedHero }) => {
     });
   }
 
-  // Filtrar heróis se um específico foi selecionado
-  const heroesToShow = selectedHero ? [selectedHero] : HEROES;
+  // Filtrar heróis se específicos foram selecionados
+  const heroesToShow = selectedHeroes.length > 0 ? selectedHeroes : HEROES;
 
   return (
     <div className="equipment-grid-container">
       <div className="equipment-header">
         <h3>
-          ⚔️ Equipamentos {selectedHero ? `- ${selectedHero}` : ''}
+          ⚔️ Equipamentos {selectedHeroes.length > 0 ? `- ${selectedHeroes.join(', ')}` : ''}
         </h3>
       </div>
       
-      <div className="heroes-sections">
+      <div className="heroes-horizontal-layout">
         {heroesToShow.map((heroName) => {
           const allHeroEquipment = getEquipmentsByHero(heroName);
 

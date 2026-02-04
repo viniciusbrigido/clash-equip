@@ -9,7 +9,7 @@ const HeroEquipment = () => {
   const { fetchPlayerData } = useApi();
   const [playerData, setPlayerData] = useState(null);
   const [playerEquipment, setPlayerEquipment] = useState([]);
-  const [selectedHero, setSelectedHero] = useState(null);
+  const [selectedHeroes, setSelectedHeroes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -29,7 +29,7 @@ const HeroEquipment = () => {
     setError('');
     setPlayerData(null);
     setPlayerEquipment([]);
-    setSelectedHero(null);
+    setSelectedHeroes([]);
 
     try {
       const data = await fetchPlayerData(playerId);
@@ -48,18 +48,26 @@ const HeroEquipment = () => {
     }
   };
 
-  const handleHeroFilter = (heroName) => {
-    setSelectedHero(heroName);
+  const handleNewSearch = () => {
+    setPlayerData(null);
+    setPlayerEquipment([]);
+    setSelectedHeroes([]);
+    setError('');
+  };
+
+  const handleHeroFilter = (heroNames) => {
+    setSelectedHeroes(heroNames);
   };
 
   return (
     <div className="hero-equipment-page">
       <div className="page-header">
         <h1>⚔️ Equipamentos dos Heróis</h1>
-        <p>Visualize os equipamentos dos heróis de qualquer jogador do Clash of Clans</p>
       </div>
 
-      <PlayerSearch onSearch={handlePlayerSearch} loading={loading} />
+      {!playerData && (
+        <PlayerSearch onSearch={handlePlayerSearch} loading={loading} />
+      )}
       
       {error && (
         <div className="error-message">
@@ -80,13 +88,16 @@ const HeroEquipment = () => {
               <span className="player-level">⭐ Nível {playerData.expLevel}</span>
               <span className="player-trophies">🏆 {playerData.trophies}</span>
             </div>
+            <button className="new-search-btn" onClick={handleNewSearch}>
+              🔍 Buscar outro jogador
+            </button>
           </div>
         </div>
       )}
 
       {playerEquipment.length > 0 && (
         <HeroFilter
-          selectedHero={selectedHero}
+          selectedHeroes={selectedHeroes}
           onHeroSelect={handleHeroFilter}
         />
       )}
@@ -94,7 +105,7 @@ const HeroEquipment = () => {
       {playerEquipment.length > 0 && (
         <EquipmentGrid 
           playerEquipment={playerEquipment}
-          selectedHero={selectedHero}
+          selectedHeroes={selectedHeroes}
         />
       )}
 
