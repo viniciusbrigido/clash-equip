@@ -10,7 +10,6 @@ const Header = () => {
       <div className="header-content">
         <div className="logo">
           <h1>⚔️ Clash of Clans</h1>
-          <span>Equipamentos dos Heróis</span>
         </div>
         <nav className="nav">
           <Link 

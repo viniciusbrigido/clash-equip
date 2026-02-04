@@ -101,9 +101,6 @@ const HeroEquipment = () => {
 
   return (
     <div className="hero-equipment-page">
-      <div className="page-header">
-        <h1>⚔️ Equipamentos dos Heróis</h1>
-      </div>
 
       {!playerData && (
         <PlayerSearch onSearch={handlePlayerSearch} loading={loading} />

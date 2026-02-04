@@ -24,22 +24,22 @@
 }
 
 .equipment-icon-img {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
 }
 
 .level-badge {
   position: absolute;
-  bottom: -3px;
-  right: -3px;
+  bottom: -4px;
+  right: -4px;
   color: #ffffff;
-  font-weight: 600;
-  font-size: 0.65rem;
-  padding: 1px 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 2px 6px;
   border-radius: 50%;
-  min-width: 16px;
-  height: 16px;
+  min-width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,16 +55,16 @@
 
 .equipped-badge {
   position: absolute;
-  top: -3px;
-  left: -3px;
+  top: -4px;
+  left: -4px;
   background: #10b981;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 0.6rem;
-  padding: 1px 3px;
-  border-radius: 3px;
-  min-width: 12px;
-  height: 12px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  border-radius: 4px;
+  min-width: 23px;
+  height: 23px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,15 +119,15 @@
   .level-badge {
     min-width: 18px;
     height: 18px;
-    font-size: 0.7rem;
-    padding: 1px 5px;
+    font-size: 0.75rem;
+    padding: 2px 5px;
   }
   
   .equipped-badge {
     min-width: 14px;
     height: 14px;
-    font-size: 0.65rem;
-    padding: 1px 4px;
+    font-size: 0.7rem;
+    padding: 2px 4px;
   }
   
   .equipment-name {

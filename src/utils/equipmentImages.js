@@ -271,3 +271,8 @@ export const isMaxLevel = (equipmentName, level) => {
   const equipment = getEquipmentData(equipmentName);
   return level >= equipment.maxLevel;
 };
+
+export const isEpicEquipment = (equipmentName) => {
+  const equipment = getEquipmentData(equipmentName);
+  return equipment.isEpic;
+};

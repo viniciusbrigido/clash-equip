@@ -20,7 +20,7 @@ const PlayerSearch = ({ onSearch, loading }) => {
             type="text"
             value={playerId}
             onChange={(e) => setPlayerId(e.target.value)}
-            placeholder="Digite o ID do jogador (ex: #2PP)"
+            placeholder="Digite o ID do jogador (ex: #Y292PGP0V)"
             className="player-input"
             disabled={loading}
             required

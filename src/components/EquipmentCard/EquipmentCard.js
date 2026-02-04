@@ -1,5 +1,5 @@
 import React from 'react';
-import { getEquipmentData, isMaxLevel } from '../../utils/equipmentImages';
+import {getEquipmentData, isEpicEquipment, isMaxLevel} from '../../utils/equipmentImages';
 import './EquipmentCard.css';
 
 const EquipmentCard = ({ equipment, playerLevel = null, isEquipped = false }) => {
@@ -7,13 +7,13 @@ const EquipmentCard = ({ equipment, playerLevel = null, isEquipped = false }) =>
   const level = playerLevel || equipment.level;
   const hasLevel = level !== null && level !== undefined;
   const isMax = hasLevel ? isMaxLevel(equipment.name, level) : false;
+  const isEpic = isEpicEquipment(equipment.name);
   const isUnlocked = hasLevel;
 
   const getRarityColor = (level, isMax) => {
-    if (isMax) return { bg: '#ffd700', shadow: 'rgba(255, 215, 0, 0.5)' }; // Dourado para nível máximo
-    if (level >= 18) return { bg: '#9c27b0', shadow: 'rgba(156, 39, 176, 0.4)' }; // Epic  
-    if (level >= 9) return { bg: '#2196f3', shadow: 'rgba(33, 150, 243, 0.4)' };  // Rare
-    return { bg: '#4caf50', shadow: 'rgba(76, 175, 80, 0.4)' }; // Common
+    if (isMax) return { bg: '#ffd700', shadow: 'rgba(255, 215, 0, 0.5)' };
+    if (isEpic) return { bg: '#9c27b0', shadow: 'rgba(156, 39, 176, 0.4)' };
+    return { bg: '#4caf50', shadow: 'rgba(76, 175, 80, 0.4)' };
   };
 
   return (
@@ -24,7 +24,6 @@ const EquipmentCard = ({ equipment, playerLevel = null, isEquipped = false }) =>
           alt={equipment.name}
           className="equipment-icon-img"
           onError={(e) => {
-            // Fallback para a imagem da API se a local não existir
             e.target.src = equipment.iconUrls?.medium || equipment.iconUrls?.small || '/equipment-icons/default-equipment.png';
           }}
         />
