@@ -11,6 +11,8 @@ export const useApi = () => {
 };
 
 export const ApiProvider = ({ children }) => {
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   const fetchPlayerData = async (playerId) => {
     // Garantir que o playerId tenha o formato correto
     let formattedPlayerId = playerId.trim();
@@ -22,7 +24,7 @@ export const ApiProvider = ({ children }) => {
     const cleanPlayerId = formattedPlayerId.replace('#', '');
     
     try {
-      const response = await fetch(`http://localhost:5000/api/player/${cleanPlayerId}`, {
+      const response = await fetch(`${API_BASE_URL}/api/player/${cleanPlayerId}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',

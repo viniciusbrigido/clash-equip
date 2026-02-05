@@ -4,7 +4,23 @@ Uma aplicação React com backend Node.js para visualizar os equipamentos dos he
 
 ## 🚀 Como Executar
 
-### 1. Backend (Node.js + Express)
+### 1. Configuração de Ambiente
+
+**Backend:**
+```bash
+cd server
+cp .env.example .env
+# Edite o arquivo .env e adicione seu token da API do Clash of Clans
+```
+
+**Frontend:**
+```bash
+# Na raiz do projeto
+cp .env.example .env
+# O arquivo .env já vem configurado para desenvolvimento local
+```
+
+### 2. Backend (Node.js + Express)
 
 ```bash
 cd server
@@ -14,7 +30,7 @@ npm run dev
 
 O backend rodará na porta 5000.
 
-### 2. Frontend (React)
+### 3. Frontend (React)
 
 ```bash
 # Na raiz do projeto
@@ -23,6 +39,28 @@ npm start
 ```
 
 O frontend rodará na porta 3000.
+
+## ⚙️ Configuração
+
+### Variáveis de Ambiente
+
+**Backend (`server/.env`):**
+```env
+CLASH_API_TOKEN=seu_token_da_api_aqui
+PORT=5000
+```
+
+**Frontend (`.env`):**
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
+
+### Como Obter o Token da API
+
+1. Acesse https://developer.clashofclans.com/
+2. Faça login com sua conta Supercell
+3. Crie uma nova chave de API
+4. Copie o token e cole no arquivo `server/.env`
 
 ## 🎯 Funcionalidades
 
@@ -84,9 +122,12 @@ src/
 3. Os equipamentos serão exibidos em um grid
 4. Use os filtros de herói para ver equipamentos específicos
 
-## 🔐 API
+## 🔐 API e Segurança
 
-O token da API do Clash of Clans está fixo no código do backend para facilitar o desenvolvimento. Em produção, considere usar variáveis de ambiente.
+- **Token seguro**: Token da API armazenado em variável de ambiente
+- **URL configurável**: URL da API configurável via variável de ambiente
+- **CORS configurado**: Permite requisições do frontend
+- **Validação de entrada**: Validação de IDs de jogador
 
 ## 📝 Endpoints do Backend
 
