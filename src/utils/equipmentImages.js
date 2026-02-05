@@ -1,4 +1,3 @@
-// Enum completo dos equipamentos dos heróis do Clash of Clans
 export const EQUIPMENT_DATA = {
   // Barbarian King
   'Barbarian Puppet': {

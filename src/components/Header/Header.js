@@ -9,7 +9,7 @@ const Header = () => {
     <header className="header">
       <div className="header-content">
         <div className="logo">
-          <h1>⚔️ Clash of Clans</h1>
+          <img src="/clash-of-clans-logo.png" alt="Logo"></img>
         </div>
         <nav className="nav">
           <Link 
