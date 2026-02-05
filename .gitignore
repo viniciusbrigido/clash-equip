@@ -27,6 +27,10 @@ chrome-user-data
 /.worktrees
 .claude/*.local.*
 
+# Environment variables
+.env
+server/.env
+
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
 packages/react-devtools-extensions/chrome/*.crx

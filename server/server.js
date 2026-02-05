@@ -1,12 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Token fixo da API do Clash of Clans
-const API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImQ5MGY0YWI0LTlmMzUtNDQ1Ni04N2UyLTY0OTg4YTM0YzQ4MyIsImlhdCI6MTc3MDIyNjE0Nywic3ViIjoiZGV2ZWxvcGVyLzA3MWEzY2Q1LWZmNGMtNWY1Yi04OWY2LTI2YTE5OTc2ZjdjYyIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjE2Ny4yNTAuMTU1LjY5Il0sInR5cGUiOiJjbGllbnQifV19.r2QJ9MWPMcnsOp5358owSD1OX5KBrD72g42lWGwccpTtLBcHr_H_alkOfvASDN9EmWglobjVJTNwiuunNaxlxw';
+// Token da API do Clash of Clans (via variável de ambiente)
+const API_TOKEN = process.env.CLASH_API_TOKEN;
+
+if (!API_TOKEN) {
+  console.error('ERRO: CLASH_API_TOKEN não encontrado nas variáveis de ambiente');
+  process.exit(1);
+}
 
 // Middleware
 app.use(cors());
