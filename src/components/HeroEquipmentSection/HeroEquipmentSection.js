@@ -44,8 +44,6 @@ const HeroEquipmentSection = ({ heroName, allEquipment, playerEquipmentMap, hero
             heroName: heroName
           };
           
-          const isEquipped = !!playerEquipment;
-          
           return (
             <EquipmentCard 
               key={`${equipmentData.name}-${index}`} 

@@ -10,8 +10,6 @@ const HEROES = [
 ];
 
 const HeroFilter = ({ selectedHeroes, onHeroSelect, showOnlyEquipped, onShowOnlyEquippedChange, hideUnlocked, onHideUnlockedChange }) => {
-  const isAllSelected = selectedHeroes.length === 0;
-  
   const handleHeroToggle = (heroKey) => {
     if (selectedHeroes.includes(heroKey)) {
       // Remove hero from selection
@@ -20,10 +18,6 @@ const HeroFilter = ({ selectedHeroes, onHeroSelect, showOnlyEquipped, onShowOnly
       // Add hero to selection
       onHeroSelect([...selectedHeroes, heroKey]);
     }
-  };
-
-  const handleSelectAll = () => {
-    onHeroSelect([]);
   };
 
   return (
